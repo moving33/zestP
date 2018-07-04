@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+#header_subn .gnb .leftmenu	{width:500px; position:absolute; left:0; top:0; padding:0; margin:20px 0 20px 20px; text-align:center; overflow:hidden;}
+#header_subn .gnb .leftmenu ul li				{display:inline-block; margin:0 10px 0 10px;}
+#header_subn .gnb .leftmenu ul li a			{color:#999;text-decoration:none;}
+#header_subn .gnb .leftmenu ul li a:hover	{color:#ff005a;text-decoration:none;}
+#header_subn .gnb .leftmenu ul li span		{display:block; text-align:center;font-size:18px;padding-top:15px;font-weight:600;font-style:italic;}
+#header_subn .gnb .logo {
+    width: 340px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0px 80px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+#header_subn .gnb .rightmenu				{width:500px; position:absolute; right:0; top:0; padding:0; margin:-20px 100px 20px 20px; text-align:center; overflow:hidden;}
+#header_subn .gnb .rightmenu ul li				{display:inline-block; margin:0 10px 0 10px;}
+#header_subn .gnb .rightmenu ul li a			{color:#999;text-decoration:none;}
+#header_subn .gnb .rightmenu ul li a:hover	{color:#ff005a;text-decoration:none;}
+#header_subn .gnb .rightmenu ul li span		{display:block; text-align:center;font-size:18px;padding-top:15px;font-weight:600;}
+
+
+
+
+.submy {
+    width: 100%;
+    min-width: 1200px;
+    background: #333;
+    height: 220px;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.submy .area {
+    width: 1200px;
+    height: 220px;
+    text-align: center;
+    margin: 0 auto;
+}
+.submy .area .sec01 {
+    width: 33.3%;
+    height: 100%;
+    float: left;
+}
+.submy .area .sec01 .box {
+    height: 120px;
+    margin: 50px 0 0 30px;
+    border-right: 1px solid #999;
+}
+.submy .area .sec01 .box .left {
+    width: 40%;
+    float: left;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;    
+}
+
+
+.submy .area .sec01 .box .right {
+    width: 55%;
+    float: left;
+    padding-left: 20px;
+}
+.submy .area .sec01 .box .right .right01 {
+    font-size: 24px;
+    color: #999;
+    text-align: left;
+    padding-top: 5px;
+    line-height: 100%;
+}
+.submy .area .sec01 .box .right .right02 {
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+    padding-top: 20px;
+}
+.submy .area .sec01 .box .right .right02 a {
+  color:#999;
+  text-decoration:none;  
+}
+.submy .area .sec01 .box .right .right02 span {
+    font-size: 12px;
+    color: #999;
+    border: 1px solid #999;
+    padding: 2px;
+}
+.submy .area .sec01 .box .right .right03 {
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+    padding-top: 20px;
+}
+.submy .area .sec01 .box .right .right03 span {
+    font-size: 12px;
+    color: #999;
+    border: 1px solid #999;
+    padding: 2px;
+}
+.submy .area .sec02 {
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+.submy .area .sec02 .box {
+    height: 120px;
+    margin: 50px 0 0 0;
+    border-right: 1px solid #999;
+}
+.submy .area .sec02 .box .box1 {
+    width: 33%;
+    float: left;
+}
+
+.submy .area .sec02 .middle {
+    padding-top: 15px;
+    color: #fff;
+}
+.submy .area .sec02 .bottom {
+    padding-top: 5px;
+    color: #fff;
+}
+.submy .area .sec02 .box .box1 {
+    width: 33%;
+    float: left;
+}
+.submy .area .sec02 .box .box2 {
+    width: 33%;
+    float: left;
+}
+.submy .area .sec02 .box .box3 {
+    width: 33%;
+    float: left;
+}
+.submy .area .sec03 {
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+.submy .area .sec03 .box {
+    height: 120px;
+    margin: 50px 0 0 0;
+}
+.submy .area .sec03 .box .left {
+    width: 30%;
+    float: left;
+    text-align: left;
+    padding-left: 20px;
+}
+.submy .area .sec03 .smsize {
+    font-size: 12px;
+    color:#999;
+}
+.submy .area .sec03 .middle {
+    padding-top: 15px;
+}
+.submy .area .sec03 .box .right {
+    width: 60%;
+    float: left;
+    text-align: left;
+    font-size: 20px;
+}
+.submy .area .sec03 .box .right a {
+    color:#999;
+  text-decoration:none;
+}
+.submy .area .sec03 .lgsize {
+    font-size: 16px;
+    color:#999;
+}
+.submy .area .sec03 .box span {
+    font-size: 12px;
+    color: #999;
+    border: 1px solid #999;
+    padding: 2px;
+}
+.submy .area .sec03 .box span {
+    font-size: 12px;
+    color: #999;
+    border: 1px solid #999;
+    padding: 2px;
+}
+#container_my {
+    width: 100%;
+    min-width: 1200px;
+    background: #e3e3e3;
+}
+#container_my .box {
+    width: 1200px;
+    background: #fff;
+    margin: 0 auto;
+}
+#container_my .cont01 {
+    width: 1200px;
+    height: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+#container_my .cont01 .box {
+    width: 100%;
+}
+#container_my .cont01 .tabon {
+    float: left;
+    width: 50%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+#container_my .cont01 .tab {
+    float: left;
+    width: 50%;
+    height: 50px;
+    color: #999;
+    background: #d7d7d7;
+    font-size: 15px;
+    font-weight: 600;
+}
+#container_my .cont04 {
+    width: 1100px;
+    height: 40px;
+    margin: 0 auto;
+}
+#container_my .cont04 .topmenu {
+    width: 1100px;
+    height: 30px;
+    margin: 0 auto;
+    border-bottom: 1px solid #dadada;
+}
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+#container_my .cont04 .topmenu .on {
+    font-weight: 600;
+    border-bottom: 3px solid #000;
+}
+#container_my .cont04 .topmenu li {
+    float: left;
+    width: 15%;
+    height: 28px;
+    text-align: center;
+    font-size: 15px;
+}
+#container_my .cont04 .topmenu li a{
+ color:#999;
+  text-decoration:none;   
+}
+#container_my .cont12 {
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+#container_my .cont12 ul {
+    overflow: hidden;
+}
+#container_my .cont12 ul li {
+    width: 49%;
+    float: left;
+    overflow: hidden;
+    height: 188px;
+    margin-bottom: 20px;
+}
+
+.footer{width:100%;border-top:1px solid #e4e4e4;}
+.footer_cont{width:1050px;margin:0 auto;padding:35px 0 70px 0;}
+.footer .info_box{overflow:hidden;display:inline-block;}
+.footer .info{overflow:hidden;float:left;margin-right:80px}
+.footer .info b{font-size:16px;color:#000;}
+.footer .info ul{padding:0;margin:0;padding-top:10px;}
+.footer .info ul li{list-style:none;font-size:14px;color:#909090;line-height:28px}
+.footer .info ul li a {color:#909090;text-decoration:none;}
+.footer .info_box2{float:right;}
+.footer .info_box2 .info{margin:0;}
+.footer .bt_info{width:650px; font-size:11px;color:#909090;line-height:20px;float:left;letter-spacing:0.5px;}
+.footer .logo_box{float:right;width:300px;text-align:right;padding-right:30px;}
+.footer .logo_box img{margin-left:20px;}
+
+/* 강의 등록 css */
+
+.cont02 {
+	background: #e6e6e6;
+	padding: 100px 0 100px 0;
+}
+
+.cont02 h1 {
+	text-align: center;
+	color: #000;
+	font-size: 40px;
+}
+
+.cont02 .tutor_eximg {
+	text-align: center;
+	padding: 60px 0;
+}
+
+.cont02 .btn_tutor {
+	width: 400px;
+	padding: 20px;
+	background: #ff005a;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 10px;
+}

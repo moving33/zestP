@@ -1,0 +1,548 @@
+@charset "UTF-8";
+
+/* classDetail - 헤더부분 */
+div {
+    display: block;
+}
+
+
+#header_subn {
+    width: 100%;
+    min-width: 1200px;
+    height: 100px;
+    background: #fff;
+    position: relative;
+    /* border: 1px solid #000; */
+}
+
+#header_subn .gnb .logo {
+    width: 340px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 20px 0 0 0;
+    background: white center top no-repeat;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+
+img {
+    border: 0;
+}
+
+#header_subn .gnb .leftmenu {
+    width: 600px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 20px 0 20px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+#header_subn .gnb .rightmenu {
+    width: 600px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 10px 20px 20px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+#header_subn .gnb .leftmenu ul li {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
+#header_subn .gnb .rightmenu ul li {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
+
+#header_subn .gnb .leftmenu ul li span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 15px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+#header_subn .gnb .rightmenu ul li span {
+    display: block;
+    text-align: center;
+    line-height: 200%;
+}
+
+
+ul, menu, dir {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+ul, menu, dir {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+#header_subn .gnb .leftmenu ul li a {
+    color: #000;
+}
+
+#header_subn .gnb .rightmenu ul li a {
+    color: #000;
+}
+
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* 페이지 제목 */
+
+.pageTitle {
+    width: 980px;
+    padding-right: 0;
+    clear: both;
+    float: none;
+    margin: 0 auto;
+    padding: 50px 10px 0px 10px;
+/*     border: 1px solid #000; */
+}
+
+.pageTitle h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: #333;
+    vertical-align: bottom;
+}
+
+.pageTitle h1 span.title {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+
+/* 수업등록  */
+#content {
+    position: relative;
+    width: 980px;
+    margin: 30px auto 20px auto;
+    color: #333333;
+}
+
+.eventAdd.box {
+    padding: 30px;
+    border: 1px solid #000;
+}
+
+.box {
+    width: 100%;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+/* 수업제목 */
+.openName {
+	position: relative;
+    /* display: inline-block; */
+    float: left;
+    height: 50px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+span.req {
+    color: red;
+}
+
+.title {
+	width: 500px;
+    margin: 0;
+}
+
+/* 대표이미지 */
+.openImg {
+	position: relative;
+    /* display: inline-block; */
+    float: left;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+}
+
+/* input[type="file"] {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+}   */
+
+/* input.upload1 {
+    opacity: 0;
+    cursor: pointer;
+    z-index: 99;
+}  */
+
+/* input.upload2 {
+    opacity: 0;
+    cursor: pointer;
+    z-index: 99;
+}  */
+
+#upload-name1 {
+	width: 200px;
+	height: 40px;
+}
+
+#add_file {
+	margin-left: 80px;
+}
+
+#upload-name2 {
+	width: 200px;
+	height: 40px;
+	padding-top: 10px;
+	margin-right: 5px;
+}
+
+.openAdd {
+	padding-left: 136px;
+    padding-top: 20px;
+}
+
+
+.openCate {
+	position: relative;
+    float: left;
+    margin-right: 30px;
+  /*  width: 100%;*/
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* 카테고리 */
+
+.ca_id {
+    width: 128px;
+    height: 38px;
+    padding: 10px 0;
+    background: #f6f6f6;
+    border-color: #d9d9d9;
+    margin-right: 5px;
+}
+
+/* 지역 */
+
+.openZone {
+	position: relative;
+    float: left;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#openWeek {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* 날짜/시간  */
+.picker {
+    width: 150px;
+    height: 40px;
+    background: url('/images/datebg1.jpg') no-repeat;
+    border: none;
+    padding-left: 40px;
+    margin-right: 20px;
+}
+
+
+.plusTimeClass{
+
+}
+
+.plusTimeClass > select {
+	width: 140px;
+    height: 50px;
+    padding: 10px 0;
+    background: #f6f6f6;
+    border-color: #d9d9d9;
+    margin-right: 5px;
+    padding-right: 15px;
+}
+
+
+
+
+
+.time-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.timeSaveZone{
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+/*    	padding-top: 20px;
+    padding-bottom: 20px; */
+}
+
+/* 가격(시간) */
+.price {
+	width: 250px;
+    margin: 0;
+}
+
+.price-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+#summer {
+	position: relative;
+    float: left;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+}
+
+/* 최소최대인원  */
+
+.people {
+	width: 200px;
+    margin: 0;
+}
+
+.people-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* 장소 */
+.place-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.place {
+	width: 200px;
+    margin: 0;
+}
+
+
+/* 추가비용 */
+.add-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.add {
+	width: 300px;
+    margin: 0;
+}
+
+
+
+/* 튜터한마디 */
+.word-group {
+	position: relative;
+    margin-right: 30px;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+   	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.word {
+	width: 500px;
+    margin: 0;
+}
+
+
+/* 버튼 */
+
+.result {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding-top: 40px;
+}
+
+/*재식*/
+/*요일 관련 card*/
+.card {
+    background: #ffffff none repeat scroll 0 0;
+    margin: 15px 0;
+    padding: 20px;
+    border: 0 solid #e7e7e7;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+/*버튼 마우스에 손이 갈때*/
+.customtab2 li a.nav-link:hover {
+    background: #1976d2 none repeat scroll 0 0;
+    color: #ffffff;
+}
+/*버튼 본상태 */
+.customtab2 li a.nav-link {
+    border: 0 none;
+    color: #67757c;
+    margin-right: 3px;
+}
+/*누르면*/
+.customtab2 li a.nav-link.active {
+    background: #1976d2 none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+.selectDay{
+
+}
+
+.selectDay > .row > .col-2{
+    flex: 0 0 16.666667%;
+    max-width: 13.666667%;
+}
+
+
+/*탭 테이블*/
+.vtabs{
+
+    display: table;
+}
+.vtabs .tabs-vertical {
+    border-bottom: 0 none;
+    border-right: 1px solid rgba(120, 130, 140, 0.13);
+    display: table-cell;
+    vertical-align: top;
+    width: 150px;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+.tabs-vertical li .nav-link.active, .tabs-vertical li .nav-link.active:focus, .tabs-vertical li .nav-link:hover {
+    background: #1976d2 none repeat scroll 0 0;
+    border: 0 none;
+    color: #ffffff;
+    width: 180px;
+    height: 50px;
+}
+
+.tab-content{
+    display: table-cell;
+    padding: 20px;
+    vertical-align: top;
+}
+
+/*.tabs-vertical > li{
+    width: 270px;
+    height: 50px;
+}*/
+
+.tabs-vertical > a .nav-link{
+    height: 54px;
+    margin-top: 3px;
+}
+
+.hidden-xs-down{
+
+    font-size: x-large;
+}
+
+.nav-item > a {
+    padding: 15px;
+}
+
+.customtab2 > li > a > .hidden-xs-down{
+    font-size: small;
+}
+
+.custom-control > label {
+    font-size: small;
+}
+
+/*원데이 항목 폰트 */
+.oneDayFont {
+    font-size: small;
+}
+
+.ui-menu-item{
+    font-size: small;
+}
+
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.notice">
+	
+	<!-- 전체 카운트 리턴 -->
+	<select id="getCount" resultType="int">
+		SELECT COUNT(*) FROM NOTICE;
+	</select>
+
+
+	<select id="listAll" resultType="NoticeVO">
+		 <![CDATA[
+		SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+			NOTICE_NO,
+			NOTICE_TITLE,
+			NOTICE_CONTENT,
+			NOTICE_DATE,
+			NOTICE_COUNT
+				FROM (SELECT @rownum := 0)dummy,
+					(SELECT NOTICE_NO,
+					NOTICE_TITLE,
+					NOTICE_CONTENT,
+					NOTICE_DATE,
+					NOTICE_COUNT FROM NOTICE
+					ORDER BY
+					NOTICE_DATE DESC limit 111111)rootMVC
+				where (@rownum := 0) = 0)rnumMVC
+		where rownum >= #{startRow} and rownum<= #{endRow}
+        ]]>
+	</select>
+	<!-- 02. 게시글 작성 -->
+	<insert id="insert">
+		INSERT INTO NOTICE (
+		NOTICE_TITLE,
+		NOTICE_CONTENT
+		) VALUES (
+		#{notice_title},
+		#{notice_content}
+		)
+	</insert>
+	<!--03. 게시글 상세보기 조회 -->
+	<select id="view" resultType="NoticeVO">
+		SELECT * FROM NOTICE
+		WHERE NOTICE_NO = #{notice_no}
+	</select>
+	<!-- 04. 게시글 조회수 증가처리 -->
+	<update id="increaseViewcnt">
+		UPDATE NOTICE SET NOTICE_COUNT = NOTICE_COUNT + 1
+		WHERE NOTICE_NO = #{notice_no}
+	</update>
+	<!-- 05. 게시글 수정처리 -->
+	<update id="updateArticle">
+		UPDATE NOTICE SET
+		NOTICE_TITLE = #{notice_title},
+		NOTICE_CONTENT = #{notice_content}
+		WHERE NOTICE_NO = #{notice_no}
+	</update>
+	<!-- 06. 게시글 삭제처리 -->
+	<delete id="deleteArticle">
+		DELETE FROM NOTICE
+		WHERE NOTICE_NO = #{notice_no}
+	</delete>
+
+</mapper>

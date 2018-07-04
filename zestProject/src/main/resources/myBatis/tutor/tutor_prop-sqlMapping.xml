@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.tutorProp">
+
+	<resultMap id="TutorPropResult"
+		type="com.zest.web.client.model.tutor.Tutor_PropVO">
+		<result property="tp_no" column="TP_NO" />
+		<result property="tp_category_id" column="TP_CATEGORY_ID" />
+		<result property="tp_email" column="TP_EMAIL" />
+		<result property="tp_hp" column="TP_HP" />
+		<result property="tp_nn" column="TP_NN" />
+		<result property="tp_image_path" column="TP_IMAGE_PATH" />
+		<result property="tp_prop_date" column="TP_PROP_DATE" />
+		<result property="tp_message" column="TP_MESSAGE" />
+		<result property="tp_status" column="TP_STATUS" />
+	</resultMap>
+
+	<!-- 튜터 신청테이블에 데이터 입력 -->
+	<insert id="insertTutorProp" parameterType="Tutor_PropVO">
+		INSERT INTO TUTOR_PROP(TP_CATEGORY_ID, TP_EMAIL, TP_HP, TP_NN)
+		values(#{tp_category_id},#{tp_email},#{tp_hp},#{tp_nn})
+	</insert>
+
+	<!-- 이메일 가지고 찾기 -->
+	<select id="searchTutorProp" resultType="Tutor_PropVO">
+		select * from TUTOR_PROP WHERE TP_EMAIL=#{tp_email} AND TP_STATUS=0
+	</select>
+
+	<!-- 번호 가지고 찾기 -->
+	<select id="searchTutorPropNumber" resultType="Tutor_PropVO">
+		select * from TUTOR_PROP WHERE TP_NO=#{number} AND TP_STATUS=0
+	</select>
+
+
+	<!-- 업데이트 -->
+	<update id="updateTutorProp" parameterType="Tutor_PropVO">
+		<if test="{tp_image_path !=null}">
+			update TUTOR_PROP set TP_IMAGE_PATH=#{tp_image_path} where TP_NO=#{tp_no};
+		</if>
+
+		<if test="{tp_status !=null}">
+			update TUTOR_PROP set TP_STATUS=#{tp_status},TP_MESSAGE=#{tp_message} where
+			TP_NO=#{tp_no};
+		</if>
+	</update>
+
+	<!-- 전체 카운트 리턴 -->
+	<select id="countTutorProp" resultType="int">
+		select count(*) from TUTOR_PROP where TP_STATUS=0
+		<!-- <if test="{search_type == email}"> AND TP_EMAIL=#{search_text} </if> -->
+	</select>
+
+	<!--리스트 리턴 -->
+	<select id="getTutorPropList" resultMap="TutorPropResult">
+		SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+		TP_NO,
+		TP_CATEGORY_ID,
+		TP_EMAIL,
+		TP_HP,
+		TP_NN,
+		TP_IMAGE_PATH,
+		date_format(TP_PROP_DATE,'%Y/%m/%d %H:%i:%s')"TP_PROP_DATE",
+		TP_MESSAGE,
+		TP_STATUS
+		FROM (SELECT @rownum := 0)dummy,
+		(SELECT * FROM TUTOR_PROP
+		WHERE TP_STATUS=0
+		<if test="search_type == 'email'">
+			AND TP_EMAIL=#{search_text}
+		</if>
+        <![CDATA[
+        ORDER BY TP_NO DESC limit 111111)rootMVC
+        where (@rownum := 0) = 0)rnumMVC
+        where rownum >= #{startRow} and rownum<= #{endRow}
+        ]]>
+	</select>
+
+	<!-- 상태 확인체크 -->
+	<select id="checkStauts" resultMap="TutorPropResult">
+		select *
+		from TUTOR_PROP
+		where TP_EMAIL= #{tp_email}
+		order by tp_no desc limit 1;
+	</select>
+
+</mapper>

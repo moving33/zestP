@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.classDetail">
+
+	<!-- 수업정보 data를 가져오는 query문 -->
+	<select id="getClass" resultType="DetailVO">
+		select TALENT.TALENT_NO,
+		TALENT.TALENT_PRICE_HOUR, TALENT.TALENT_TOTAL_PRICE,
+		TALENT.TALENT_DC_RATE, TALENT.TALENT_MEET_TIME,
+		TALENT.TALENT_MEET_COUNT, TALENT.TALENT_ACC_CLIENT,
+		TALENT.TALENT_VALUE,
+		TALENT_CONTENT.TUTOR_NO, TUTOR.TT_NAME, TUTOR.TT_NN, TUTOR.TT_IM_PATH,
+		TALENT_CONTENT.TC_SUBJECT, TALENT_CONTENT.TC_MAX_CLIENT,
+		TALENT_CONTENT.TC_PRICE_DETAIL, TALENT_CONTENT.TC_TT_MESSAGE,
+		TALENT_CONTENT.TC_TT_INFO, TALENT_CONTENT.TC_CLASS_TAGET,
+		TALENT_CONTENT.TC_CURRICULUM, TALENT_CONTENT.TC_IMAGE_PATH,
+		TALENT_CONTENT.TC_VIDEO_PATH, TALENT_CONTENT.TC_LOCATION,
+		TALENT_INFO.TI_ZONE_DETAIL, TALENT_INFO.TI_MON, TALENT_INFO.TI_TUE,
+		TALENT_INFO.TI_WED, TALENT_INFO.TI_TUR, TALENT_INFO.TI_FRI,
+		TALENT_INFO.TI_SAT, TALENT_INFO.TI_SUN, TALENT_INFO.TC_STATUS
+		from TALENT, TALENT_CONTENT, TUTOR, TALENT_INFO
+		where TALENT.TALENT_NO = TALENT_CONTENT.TALENT_NO and
+		TALENT_CONTENT.TUTOR_NO = TUTOR.TT_NO and TALENT_CONTENT.TALENT_NO =
+		TALENT_INFO.TALENT_NO and TALENT.TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- talent_content 내용  -->
+	<select id="ContentClass" resultType="DetailVO">
+	SELECT * FROM TALENT_CONTENT WHERE TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- talent 내용  -->
+	<select id="talentClass" resultType="TalentVO">
+	SELECT * FROM TALENT WHERE TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- 튜터정보  -->
+	<select id="talentInfo" resultType="ClassDetail_TutorVO">
+	select TALENT_CONTENT.TALENT_NO, TUTOR.TT_NO, TUTOR.TT_NAME, TUTOR.TT_NN, TUTOR.TT_IM_PATH
+	from TALENT_CONTENT, TUTOR
+	where TALENT_CONTENT.TUTOR_NO = TUTOR.TT_NO and TALENT_CONTENT.TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- 리뷰정보 -->
+	<select id="reviewInfo" resultType="ReviewVO">
+	SELECT TALENT_REVIEW.TALENT_NO, TALENT_REVIEW.TT_NO, CLIENT.CL_NAME, TALENT_REVIEW.TOTAL_VALUE, TALENT_REVIEW.TR_CONTENT
+	from TALENT_REVIEW, CLIENT
+	where TALENT_REVIEW.TR_CLIENT_NO = CLIENT.CL_NO and TALENT_REVIEW.TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- 리뷰별점 -->
+	<select id="reviewValue" resultType="ReviewVO">
+	SELECT TALENT_NO, TT_NO, ROUND(AVG(TR_CURRI_VALUE),0) as TR_CURRI_VALUE, ROUND(AVG(TR_COMMU_VALUE), 0) as TR_COMMU_VALUE,
+	ROUND(AVG(TR_READY_VALUE),0) as TR_READY_VALUE, ROUND(AVG(TC_KIND_VALUE),0) as TC_KIND_VALUE,
+	ROUND(AVG(TC_TIME_VALUE),0) as TC_TIME_VALUE, ROUND(AVG(TOTAL_VALUE),0) as TOTAL_VALUE
+	FROM TALENT_REVIEW
+	WHERE TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- 리뷰 카운트 -->
+	<select id="reviewCount" resultType="int">
+		SELECT COUNT(*) FROM TALENT_REVIEW WHERE TALENT_NO = #{talent_no}
+	</select>
+	
+	<!-- 리뷰내용 pageNum 만큼 가져오기 -->
+	<select id="reviewAll" resultType="ReviewVO">
+		<![CDATA[
+		SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+				TALENT_NO,
+				TT_NO,
+				CL_NAME,
+				TOTAL_VALUE,
+				TR_CONTENT
+						FROM(SELECT @rownum := 0)dummy,
+							(SELECT 
+							TALENT_NO,
+							TT_NO,
+							CL_NAME,
+							TOTAL_VALUE,
+							TR_CONTENT
+							
+						FROM TALENT_REVIEW JOIN CLIENT
+							ON TALENT_REVIEW.TR_CLIENT_NO = CLIENT.CL_NO
+							ORDER BY
+							TC_REG_DATE DESC LIMIT 11111)rootMVC
+		
+							
+							WHERE (@rownum := 0) = 0)rnumMVC 
+						WHERE rownum >= #{startRow} and rownum <= #{endRow} and TALENT_NO = #{talent_no}
+			]]>
+						
+	</select>
+	
+	
+	
+	<!--  <![CDATA[
+		SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+				TALENT_NO,
+				TT_NO,
+				CL_NAME,
+				TOTAL_VALUE,
+				TR_CONTENT
+						FROM(SELECT @rownum := 0)dummy,
+							(SELECT 
+							TALENT_NO,
+							TT_NO,
+							CL_NAME,
+							TOTAL_VALUE,
+							TR_CONTENT
+						FROM TALENT_REVIEW JOIN CLIENT
+							ON TALENT_REVIEW.TR_CLIENT_NO = CLIENT.CL_NO
+							WHERE TALENT_REVIEW.TALENT_NO = #{talent_no}
+							ORDER BY
+							TC_REG_DATE DESC LIMIT 11111)rootMVC
+							WHERE (@rownum := 0) = 0)rnumMVC 
+						WHERE rownum >= #{startRow} and rownum <= #{endRow}
+						]]> -->
+	
+	
+	
+	<!-- <![CDATA[
+		SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+				TALENT_NO,
+				TT_NO,
+				CL_NAME,
+				TOTAL_VALUE,
+				TR_CONTENT
+						FROM(SELECT @rownum := 0)dummy,
+							(SELECT 
+							TALENT_NO,
+							TT_NO,
+							CL_NAME,
+							TOTAL_VALUE,
+							TR_CONTENT
+							FROM TALENT_REVIEW, CLIENT
+							WHERE TALENT_REVIEW.TR_CLIENT_NO = CLIENT.CL_NO and TALENT_REVIEW.TALENT_NO = #{talent_no}
+							ORDER BY
+							TC_REG_DATE DESC LIMIT 11111)rootMVC
+							WHERE (@rownum := 0) = 0)rnumMVC
+						WHERE rownum >= #{startRow} and rownum <= #{endRow}
+			]]> -->
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talent_Info">
+	<!-- 강의 정보 등록 -->
+	<insert id="insertTI" parameterType="TI_VO">
+		INSERT INTO TALENT_INFO(
+								TALENT_NO,
+								ZONE_ID,
+								TI_ZONE_DETAIL,
+								TI_MON,
+								TI_TUE,
+								TI_WED,
+								TI_TUR,
+								TI_FRI,
+								TI_SAT,
+								TI_SUN,
+								TI_STATUS) 
+								        VALUES(
+											#{talent_no},
+											#{zone_id},
+											#{ti_zone_detail, jdbcType=VARCHAR},
+											#{ti_mon, jdbcType=INTEGER},
+											#{ti_tue, jdbcType=INTEGER},
+											#{ti_wed, jdbcType=INTEGER},
+											#{ti_tur, jdbcType=INTEGER},
+											#{ti_fri, jdbcType=INTEGER},
+											#{ti_sat, jdbcType=INTEGER},
+											#{ti_sun, jdbcType=INTEGER},
+											#{ti_status, jdbcType=INTEGER}            
+								    		)
+	</insert>    
+	
+	<!-- 강의 위치/요일  -->
+	<select id="zoneDay" resultType="TI_VO">
+		SELECT TI_NO,
+				TALENT_NO,
+				TALENT_INFO.ZONE_ID,
+				ZONE_NAME,
+				TI_ZONE_DETAIL,
+				TI_MON,
+				TI_TUE,
+				TI_WED,
+				TI_TUR,
+				TI_FRI,
+				TI_SAT,
+				TI_SUN,
+				TI_STATUS		
+		FROM TALENT_INFO JOIN ZONE USING(ZONE_ID) 
+		WHERE TALENT_INFO.ZONE_ID = ZONE.ZONE_ID and TALENT_NO = #{talent_no}
+	</select>
+	
+</mapper>

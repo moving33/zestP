@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.categoryPage">
+ 
+ 	<!-- 전체 카운트 리턴 -->
+	<select id="getCategoryPageListCount" resultType="int">
+		<choose>
+			<when test="search_text != '' ">
+				SELECT COUNT(*) FROM TALENT_CONTENT WHERE TC_SUBJECT LIKE CONCAT('%',#{search_text},'%');
+			</when>
+			<when test="lecture_id != '' and lecture_id != null">
+				SELECT COUNT(*) FROM TALENT WHERE TALENT.TALENT_LECTURE_ID = #{lecture_id};
+			</when>
+			<when test="talent_category_id eq 'hot' ">
+				SELECT COUNT(*) FROM TALENT;
+			</when>
+			<otherwise>
+				SELECT COUNT(*) FROM TALENT WHERE TALENT_CATEGORY_ID= #{talent_category_id};
+			</otherwise>
+		</choose>
+	</select>
+ 
+ 	<!-- 카테고리(대분류) data를 가져오는 query문 -->
+ 	<select id="getCategoryPageList" resultType="CategoryPageVO"> 	
+	  <![CDATA[
+		SELECT * FROM (
+			SELECT @rownum := @rownum + 1 AS rownum,
+			TALENT_NO, 
+			TALENT_PRICE_HOUR,
+		    TALENT_ACC_CLIENT, 
+		    TC_SUBJECT, 
+		    TC_IMAGE_PATH, 
+		    ZONE_ID, 
+		    ZONE_NAME,
+		    TALENT_CATEGORY_ID
+						FROM (SELECT @rownum := 0)dummy,
+		  						 (SELECT 
+		  						 TALENT_NO, 
+								 TALENT_PRICE_HOUR,
+								 TALENT_ACC_CLIENT, 
+								 TC_SUBJECT, 
+								 TC_IMAGE_PATH, 
+								 GROUP_CONCAT(ZONE_ID) AS ZONE_ID, 
+								 GROUP_CONCAT(ZONE_NAME) AS ZONE_NAME,
+								 TALENT_CATEGORY_ID 
+								 FROM 
+		  						 	TALENT 
+		  						 		JOIN TALENT_CONTENT USING(TALENT_NO) 
+		  						 		JOIN TALENT_INFO USING(TALENT_NO) 
+		  						 		JOIN ZONE USING(ZONE_ID)
+		  	]]>
+		  								<choose>
+			  						 		<when test="search_text != '' ">
+			  						 			WHERE TC_SUBJECT LIKE CONCAT('%',#{search_text},'%')
+			  						 		</when>
+			  						 		<when test="talent_category_id eq 'hot' ">
+			  						 		</when>
+			  						 		<otherwise>			  						 		
+			   									WHERE TALENT_CATEGORY_ID = #{talent_category_id}
+			   								</otherwise>
+		   								</choose>
+		   	<![CDATA[
+		   							GROUP BY TALENT_NO
+       								ORDER BY TALENT.TALENT_ACC_CLIENT DESC limit 111111)rootMVC
+     			  	 			where (@rownum := 0) = 0)rnumMVC
+        		 where rownum >= #{startRow} and rownum<= #{endRow}
+        	 ]]>
+        	 
+ 	</select>
+ 	
+ 	<!-- 카테고리(소분류) data를 가져오는 query문 -->
+ 	<select id="getLecturePageList" resultType="CategoryPageVO"> 	
+	  <![CDATA[
+		SELECT * FROM (
+			SELECT @rownum := @rownum + 1 AS rownum,
+			TALENT_NO, 
+			TALENT_PRICE_HOUR,
+		    TALENT_ACC_CLIENT, 
+		    TC_SUBJECT, 
+		    TC_IMAGE_PATH, 
+		    ZONE_ID, 
+		    ZONE_NAME,
+		    TALENT_CATEGORY_ID,
+		    TALENT_LECTURE_ID
+						FROM (SELECT @rownum := 0)dummy,
+		  						 (SELECT 
+		  						 TALENT_NO, 
+								 TALENT_PRICE_HOUR,
+								 TALENT_ACC_CLIENT, 
+								 TC_SUBJECT, 
+								 TC_IMAGE_PATH, 
+								 GROUP_CONCAT(ZONE_ID) AS ZONE_ID, 
+								 GROUP_CONCAT(ZONE_NAME) AS ZONE_NAME,
+								 TALENT_CATEGORY_ID,
+								 TALENT_LECTURE_ID
+								 FROM 
+		  						 	TALENT 
+		  						 		JOIN TALENT_CONTENT USING(TALENT_NO) 
+		  						 		JOIN TALENT_INFO USING(TALENT_NO) 
+		  						 		JOIN ZONE USING(ZONE_ID)
+				]]>  						 		
+		  						 	<choose>
+		  						 		<when test="search_text != '' ">
+			  						 		WHERE TC_SUBJECT LIKE CONCAT('%',#{search_text},'%')
+			  						 	</when>
+			  						 	<otherwise>
+			  								WHERE TALENT_LECTURE_ID = #{talent_lecture_id} 	
+			  						 </otherwise>
+		  						 	</choose>
+		   		<![CDATA[
+		   							GROUP BY TALENT_NO
+       								ORDER BY TALENT.TALENT_ACC_CLIENT DESC limit 111111)rootMVC
+     			  	 				where (@rownum := 0) = 0)rnumMVC
+        		 					where rownum >= #{startRow} and rownum<= #{endRow}
+        		 ]]>
+ 	</select>
+ 	
+ 	
+ </mapper>

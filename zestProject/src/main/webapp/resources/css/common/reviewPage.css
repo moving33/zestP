@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+
+.popup .popup-content {
+	top: 50%;
+    left: 50%;
+    border-radius: 5px;
+}
+
+#popup-write-review .popup-content {
+/* 	position: static; */
+    overflow: hidden;
+    margin: auto auto 0 auto;
+    padding: 0;
+    border-bottom: 5px solid #fd6a70;
+    max-width: 550px;
+/*     width: 100%; */
+    text-align: left;
+}
+
+#popup-write-review .popup-content h1 {
+	margin: 0;
+    padding: 25px 0 22px 24px;
+    font-weight: normal;
+    line-height: 1;
+    background: #ffeaeb;
+}
+
+#popup-write-review .popup-content h1 strong {
+	color: #fd6a70;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popup-content h1 {
+    font-size: 18px;
+}
+
+#popup-write-review .popup-content .review-scores {
+	margin: 20px 20px 10px 20px;
+}
+
+#popup-write-review .popup-content .review-scores .review-scores-detail:nth-child(-n+2) {
+	margin-right: 20px;
+}
+
+
+#popup-write-review .popup-content .review-scores .review-scores-detail {
+	float: left;
+    padding-bottom: 10px;
+}
+
+#popup-write-review .popup-content .review-scores .review-scores-detail label {
+	margin: 0 10px 0 0;
+}
+
+
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.glyphicon-star:before {
+    content: "";
+}
+
+#popup-write-review .popup-content .review-content {
+	display: block;
+    height: 200px;
+    border: none;
+    background: none;
+}
+
+#popup-write-review .popup-content .review-content textarea {
+	width: 100%;
+    height: 100%;
+    padding: 18px;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+}
+
+
+textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+
+#popup-write-review .review-content button {
+	margin-top: 7px;
+    margin-left: 400px;
+    padding: 0 10px;
+    width: auto;
+    float: left;
+}
+
+.popup .popup-content .btn {
+    display: block;
+    height: 25px;
+    font-size: 12px;
+    line-height: 1;
+    color: #fff;
+}
+
+
+.btn-pink {
+    background: #fd6a70;
+    border-color: #fd6a70;
+}
+
+
+#popup-write-review .popup-content .review-scores .review-scores-detail .stars .glyphicon-star.active {
+	color: #ffc600;
+}
+
+
+#popup-write-review .popup-content .review-scores .review-scores-detail:after, #popup-view-review .popup-content .review-scores .review-scores-detail:after, #popup-inquiry .popup-content .review-scores .review-scores-detail:after {
+    clear: both;
+    display: table;
+    content: " ";
+}
+
+
+
+.star_comment {
+	padding-left: 120px;
+}
+
+
+
+
+
+/* 별점 */
+.star-input1>.input,
+.star-input1>.input>label:hover,
+.star-input1>.input>input:focus+label,
+.star-input1>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/zest/images/grade_img.png')no-repeat;}
+.star-input1{display:inline-block; white-space:nowrap;width:225px;height:40px;line-height:30px;}
+.star-input1>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input1>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+.star-input1>.input.focus{outline:1px dotted #ddd;}
+.star-input1>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input1>.input>label:hover,
+.star-input1>.input>input:focus+label,
+.star-input1>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input1>.input>label:hover~label{background-image: none;}
+.star-input1>.input>label[for="curri1"]{width:30px;z-index:5;}
+.star-input1>.input>label[for="curri2"]{width:60px;z-index:4;}
+.star-input1>.input>label[for="curri3"]{width:90px;z-index:3;}
+.star-input1>.input>label[for="curri4"]{width:120px;z-index:2;}
+.star-input1>.input>label[for="curri5"]{width:150px;z-index:1;}
+.star-input1>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+
+.star-input2>.input,
+.star-input2>.input>label:hover,
+.star-input2>.input>input:focus+label,
+.star-input2>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/zest/images/grade_img.png')no-repeat;}
+.star-input2{display:inline-block; white-space:nowrap;width:225px;height:40px;line-height:30px;}
+.star-input2>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input2>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+.star-input2>.input.focus{outline:1px dotted #ddd;}
+.star-input2>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input2>.input>label:hover,
+.star-input2>.input>input:focus+label,
+.star-input2>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input2>.input>label:hover~label{background-image: none;}
+.star-input2>.input>label[for="delivery1"]{width:30px;z-index:5;}
+.star-input2>.input>label[for="delivery2"]{width:60px;z-index:4;}
+.star-input2>.input>label[for="delivery3"]{width:90px;z-index:3;}
+.star-input2>.input>label[for="delivery4"]{width:120px;z-index:2;}
+.star-input2>.input>label[for="delivery5"]{width:150px;z-index:1;}
+.star-input2>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+
+
+
+.star-input3>.input,
+.star-input3>.input>label:hover,
+.star-input3>.input>input:focus+label,
+.star-input3>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/zest/images/grade_img.png')no-repeat;}
+.star-input3{display:inline-block; white-space:nowrap;width:225px;height:40px;line-height:30px;}
+.star-input3>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input3>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+.star-input3>.input.focus{outline:1px dotted #ddd;}
+.star-input3>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input3>.input>label:hover,
+.star-input3>.input>input:focus+label,
+.star-input3>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input3>.input>label:hover~label{background-image: none;}
+.star-input3>.input>label[for="prepare1"]{width:30px;z-index:5;}
+.star-input3>.input>label[for="prepare2"]{width:60px;z-index:4;}
+.star-input3>.input>label[for="prepare3"]{width:90px;z-index:3;}
+.star-input3>.input>label[for="prepare4"]{width:120px;z-index:2;}
+.star-input3>.input>label[for="prepare5"]{width:150px;z-index:1;}
+.star-input3>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+
+
+.star-input4>.input,
+.star-input4>.input>label:hover,
+.star-input4>.input>input:focus+label,
+.star-input4>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/zest/images/grade_img.png')no-repeat;}
+.star-input4{display:inline-block; white-space:nowrap;width:225px;height:40px;line-height:30px;}
+.star-input4>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input4>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+.star-input4>.input.focus{outline:1px dotted #ddd;}
+.star-input4>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input4>.input>label:hover,
+.star-input4>.input>input:focus+label,
+.star-input4>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input4>.input>label:hover~label{background-image: none;}
+.star-input4>.input>label[for="kind1"]{width:30px;z-index:5;}
+.star-input4>.input>label[for="kind2"]{width:60px;z-index:4;}
+.star-input4>.input>label[for="kind3"]{width:90px;z-index:3;}
+.star-input4>.input>label[for="kind4"]{width:120px;z-index:2;}
+.star-input4>.input>label[for="kind5"]{width:150px;z-index:1;}
+.star-input4>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+
+
+
+.star-input5>.input,
+.star-input5>.input>label:hover,
+.star-input5>.input>input:focus+label,
+.star-input5>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/zest/images/grade_img.png')no-repeat;}
+.star-input5{display:inline-block; white-space:nowrap;width:225px;height:40px;line-height:30px;}
+.star-input5>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input5>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+.star-input5>.input.focus{outline:1px dotted #ddd;}
+.star-input5>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input5>.input>label:hover,
+.star-input5>.input>input:focus+label,
+.star-input5>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input5>.input>label:hover~label{background-image: none;}
+.star-input5>.input>label[for="time1"]{width:30px;z-index:5;}
+.star-input5>.input>label[for="time2"]{width:60px;z-index:4;}
+.star-input5>.input>label[for="time3"]{width:90px;z-index:3;}
+.star-input5>.input>label[for="time4"]{width:120px;z-index:2;}
+.star-input5>.input>label[for="time5"]{width:150px;z-index:1;}
+.star-input5>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+
+
+

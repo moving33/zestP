@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.rievew">
+ 
+<!--  	 TT_NO 가져오기 
+ 	<select id="getTTNO" parameterType="Talent_contentVO" resultType="ReviewVO">
+ 	SELECT * FROM TALENT_CONTENT WHERE talent_no = #{talent_no}
+ 	</select> -->
+ 
+ 
+ 	<!-- 리뷰쓰기 -->
+ 	<insert id="insertReview" parameterType="ReviewVO">
+ 	 INSERT INTO TALENT_REVIEW
+ 	 (TALENT_NO, TT_NO, TR_CLIENT_NO, TR_CURRI_VALUE, TR_COMMU_VALUE, TR_READY_VALUE, TC_KIND_VALUE, TC_TIME_VALUE, TR_CONTENT, TOTAL_VALUE) 
+ 	 VALUES (#{talent_no}, #{tt_no}, #{tr_client_no}, #{tr_curri_value}, #{tr_commu_value} ,#{tr_ready_value}, #{tc_kind_value}, #{tc_time_value}, #{tr_content}, #{total_value});
+ 	</insert>
+ 	
+ 	 
+ </mapper>

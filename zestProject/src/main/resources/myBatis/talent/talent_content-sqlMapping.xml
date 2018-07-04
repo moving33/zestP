@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.zest.talentContent">
+	<!-- 강의 내용 등록 -->
+	<insert id="insertTC" parameterType="TC_VO">
+
+		INSERT INTO TALENT_CONTENT(
+									TALENT_NO,
+									TUTOR_NO,
+									TC_SUBJECT,
+									TC_MAX_CLIENT,
+									TC_PRICE_DETAIL,
+									TC_TT_MESSAGE,
+									TC_TT_INFO,
+									TC_CLASS_INFO,
+									TC_CLASS_TAGET,
+									TC_CURRICULUM,
+									TC_IMAGE_PATH,
+									TC_VIDEO_PATH,									
+									TC_LOCATION)
+							VALUES (
+									#{talent_no},
+									#{tutor_no},
+									#{tc_subject},
+									#{tc_max_client},
+									#{tc_price_detail},
+									#{tc_tt_message},
+									#{tc_tt_info},
+									#{tc_class_info},
+									#{tc_class_taget},
+									#{tc_curri},
+									#{tc_image_path},
+									#{tc_video_path},
+									#{tc_location}																											#{tc_location}
+									)
+	</insert>
+</mapper>

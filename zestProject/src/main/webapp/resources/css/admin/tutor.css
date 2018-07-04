@@ -1,0 +1,262 @@
+@charset "EUC-KR";
+
+#menu {
+	background: #e4e4e4;
+	padding-top: 40px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	padding-left: 80px;
+}
+
+#menu ul {
+	margin-top: -35px;
+	margin-left: -120px;
+	list-style: none;
+}
+
+#menu ul a {
+	background: #95a5a6;
+	height: 60px;
+	width: 140px;
+	border-radius: 5px;
+	float: left;
+	margin-left: 18px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+}
+
+#menu ul a:hover {
+	background-color: #58ACFA;
+}
+
+#menu ul a li {
+	background-color: #95a5a6;
+	color: black;
+	text-decoration: none;
+}
+
+#menu ul a li:active {
+	background-color: #58ACFA;
+}
+
+#menu ul a li span {
+	background-color: #95a5a6;
+}
+
+#menu ul a li span:hover {
+	background-color: #58ACFA;
+}
+
+#menu ul a li:hover, #menu ul li a:active, #menu ul li a:focus, #menu ul li#menu-active a
+	{
+	background-color: #58ACFA;
+	color: white;
+}
+
+.cate {
+	width: 165px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	background: #eee;
+}
+
+cate, th, td, a {
+	color: black;
+	text-decoration: none;
+}
+
+cate, a:hover {
+	background-color: #58ACFA;
+}
+
+cate, a:focus {
+	background: #58ACFA;
+}
+
+#filtersubmit {
+	position: relative;
+	z-index: 1;
+	left: -25px;
+	top: 1px;
+	color: #7B7B7B;
+	cursor: pointer;
+	width: 0;
+}
+
+.article span {
+	position: absolute;
+	margin: auto;
+	margin-left: 170px;
+	margin-top: -150px;
+}
+
+.search {
+	position: absolute;
+	margin: auto;
+	margin-left: 280px;
+	margin-top: -150px;
+}
+
+.tutor {
+	width: 1200px;
+	height: 164px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 2px solid #ccc;
+	table-layout: fixed;
+	margin-left: 170px;
+	margin-top: -120px;
+}
+
+.tutor {
+	word-break: break-all;
+}
+
+.tutorth h1 {
+	margin-left: 170px;
+}
+
+.tutorth h2 {
+	margin-left: 320px;
+	margin-top: -20px;
+}
+
+.circle {
+	position: absolute;
+	top: 480px;
+	left: 291px;
+	width: 309px;
+	height: 277px;
+	border-radius: 50%;
+	background-color: #e0e0e0;
+	margin-top: -30px;
+	margin-left: -60px;
+	background-size: cover;	
+	background-position: center;
+}
+
+.button {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 8px 22px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin-left: 550px;
+	border-radius: 12px;
+}
+
+.button2 {
+	background-color: white;
+	color: black;
+	border: 2px solid #008CBA;
+}
+
+.button2:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.button3 {
+	background-color: white;
+	color: black;
+	border: 2px solid #ff005a;
+}
+
+.button3:hover {
+	background-color: #ff005a;
+	color: white;
+}
+
+.content {
+	background-color: #ddd;
+	width: 361px;
+	height: 263px;
+	margin-left: 690px;
+	margin-top: -100px;
+}
+
+.confirm h2 {
+	margin-left: 320px;
+}
+
+.schoolconfirm {
+	background-color: #ddd;
+	width: 233px;
+	height: 96px;
+	margin-left: 280px;
+}
+
+.schoolbutton {
+	margin-top: -100px;
+}
+
+.license h2 {
+	margin-top: -146px;
+	margin-left: 750px;
+}
+
+.licenseconfirm {
+	background-color: #ddd;
+	width: 233px;
+	height: 96px;
+	margin-left: 690px;
+}
+
+.licebutton {
+	margin-top: -95px;
+	margin-left: 410px;
+}
+
+.allconfirm {
+	margin-left: 550px;
+}
+
+.allbutton {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 8px 22px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 250px;
+	border-radius: 12px;
+}
+
+.allbutton2 {
+	background-color: white;
+	color: black;
+	border: 2px solid #008CBA;
+}
+
+.allbutton2:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.allbutton3 {
+	background-color: white;
+	color: black;
+	border: 2px solid #ff005a;
+}
+
+.allbutton3:hover {
+	background-color: #ff005a;
+	color: white;
+}

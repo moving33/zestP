@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talent">
+	<!-- 최초 강의등록 -->
+	<insert id="insertTalent" parameterType="TalentVO">
+		INSERT INTO TALENT(
+			    TALENT_PRICE_HOUR, 
+			    TALENT_TOTAL_PRICE,     
+			    TALENT_MEET_COUNT, 
+			    TALENT_MEET_TIME,
+			    TALENT_TT_NO, 
+			    TALENT_CATEGORY_ID, 
+			    TALENT_LECTURE_ID) 
+	        VALUES(
+	            #{talent_price_hour}, 
+	            #{talent_total_price},     
+	            #{talent_meet_count}, 
+	            #{talent_meet_time},
+	            #{talent_tt_no}, 
+	            #{talent_category_id}, 
+	            #{talent_lecture_id}             
+	    		)
+    		<selectKey resultType="int" keyProperty="talent_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+          </selectKey>
+	</insert>
+	
+	
+	
+	
+	
+    
+</mapper>

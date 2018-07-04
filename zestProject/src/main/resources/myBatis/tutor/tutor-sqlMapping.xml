@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.tutor">
+
+    <insert id="insertTutor" parameterType="TutorVO">
+        INSERT INTO
+          TUTOR(
+          TT_EMAIL,
+          TT_NAME,
+          TT_PASS,
+          TT_HP,
+          TT_NN,
+          TT_CATEGROY_ID)
+          values(
+            #{tt_email},
+            #{tt_name},
+            #{tt_pass},
+            #{tt_hp},
+            #{tt_nn},
+            #{tt_categroy_id}
+          )
+          <selectKey resultType="int" keyProperty="tt_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+          </selectKey>
+    </insert>
+    
+    <update id="updateImagePathTutor" parameterType="TutorVO">
+        UPDATE 
+        TUTOR
+          SET
+            TT_IM_PATH = #{tt_im_path}
+          WHERE
+            TT_NO = #{tt_no}
+    </update>
+	
+	<!-- 클라이언트 아이디로 튜터 객체 검색 -->
+	<select id="getTutorForClientId" resultType="TutorVO">
+		SELECT * FROM 
+				 TUTOR
+			WHERE TT_EMAIL = #{clientEmailId}				 
+	</select>
+</mapper>

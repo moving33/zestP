@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.adminBoard"> 	
+<!-- <mapper namespace="BoardMapper"> -->
+
+	 
+	 <!-- 게시물의 총 개수 -->
+	 <select id="selectcount" resultType="Integer">
+	 	select count(*) from ADMIN_BOARD 
+	 		<if test="type != ''">
+      	<choose>
+      		<when test="type == 'ID'">
+      			where ADD_ID = #{keyword}      		
+      		</when>      	
+      		
+      		<when test="type == 'TITLE'">
+      			 where ADD_TITLE like CONCAT(#{keyword},'%')      		
+      		</when>   
+      		
+      		<when test="type == 'CONTENT'">
+      			where ADD_CONTENT like  CONCAT(#{keyword},'%')
+      		</when>   	
+      	</choose>      
+      </if>	
+	 </select>
+	
+    <!-- 게시판 추가하기 -->
+    <insert id="insert" parameterType="BoardVO">
+        insert into ADMIN_BOARD (add_id, add_name, add_title, add_content, add_reg_date, add_ip)
+        values(#{add_id},#{add_name}, #{add_title},#{add_content} ,sysdate() ,#{add_ip} )
+    </insert>
+    
+    <!-- 게시판 리스트보기 -->
+    <select id="listAll" resultType="BoardVO">
+	<![CDATA[	   
+    SELECT * FROM (SELECT @rownum := @rownum + 1 AS rownum,
+		ADD_NO,
+		ADD_ID,
+		ADD_NAME,
+		ADD_TITLE,
+		ADD_CONTENT,
+		ADD_IP,
+		ADD_READCOUNT,
+		ADD_REG_DATE	
+		FROM (SELECT @rownum := 0)dummy,
+		(SELECT * FROM ADMIN_BOARD
+	]]>
+	<if test="type != ''">
+      	<choose>
+      		<when test="type == 'ID'">
+      			where ADD_ID = #{keyword}      		
+      		</when>      	
+      		
+      		<when test="type == 'TITLE'">
+      			 where ADD_TITLE like CONCAT('%',#{keyword},'%')      		
+      		</when>   
+      		
+      		<when test="type == 'CONTENT'">
+      			where ADD_CONTENT like  CONCAT('%',#{keyword},'%')
+      		</when>   	
+      	</choose>      
+      </if>		
+	<![CDATA[
+        ORDER BY ADD_NO DESC limit 111111)rootMVC
+        where (@rownum := 0) = 0)rnumMVC
+        where rownum >= #{startRow} and rownum<= #{endRow}
+      ]]>
+      
+    </select>
+    
+    <!-- 게시판 상세보기 -->
+    <select id="get" resultType="BoardVO">
+            select * from ADMIN_BOARD where add_no = #{add_no}
+    </select>
+ 
+    <!-- 게시판 삭제하기 -->
+    <delete id="delete">
+        delete from ADMIN_BOARD where add_no = #{add_no}
+    </delete>
+    
+    <!-- 게시판 수정하기 -->
+   <update id="update">
+        update ADMIN_BOARD set add_title = #{add_title} , add_content = #{add_content} where add_no = #{add_no}
+   </update>
+   
+
+   <!-- 게시판 조회수 증가 -->
+   <update id="updateBoardRead" >
+   		update ADMIN_BOARD set add_readcount = add_readcount +1 where add_no = #{add_no} 
+   </update>
+	
+ 	<!-- 게시판 검색기능 -->
+	<select id ="boardGetCheck" resultType="BoardVO" parameterType="BoardVO">
+		SELECT * from ADMIN_BOARD WHERE 1 = 1
+	<if test="searchCondition == 'ID'">
+		AND add_id LIKE concat('%',#{searchKeyword},'%')      
+	</if>
+	<if test="searchCondition == 'TITLE'">
+		AND add_title LIKE concat('%',#{searchKeyword},'%')
+	</if>
+	<if test="searchCondition == 'CONTENT'">
+		AND add_content LIKE concat('%',#{searchKeyword},'%')
+	</if> 
+		ORDER BY ADD_NO DESC
+	</select>
+	
+   <!-- 기존댓글 번호 증감 -->
+   <update id="board_update_reple_num">
+   		update ADMIN_BOARD set add_re_step = add_re_step + 1 where add_ref= #{add_ref} and add_re_step > #{add_rs_step} 
+   </update>
+   
+</mapper>
+ 
+ 	 

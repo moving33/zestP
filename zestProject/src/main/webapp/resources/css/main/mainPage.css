@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+/* 진호 검색창 테두리 */
+input:focus {
+	outline: none;
+}
+
+/* 검색창 마진 */
+.searchimg {
+	margin-left: 5px;
+}
+
+
+
+/* 검색창 테투리 */
+input:focus {
+	outline: none;
+}	
+
+/* 진호 */
+.searchdiv {
+	width: 400px;
+	height: 40px;
+	border: 3px solid #ff0000;
+	border-radius: 40px;
+	margin-top: -3px;
+}
+
+/* 진호 상단 메뉴(서비스 소개) 폰트 */
+.logo {
+	font-family: Malgun Gothic;
+	font-size: 20px;
+}
+
+/* 링크 컬러 */
+.navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link,
+	.navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.activej
+	{
+	color: #000000;
+}
+
+/* 최상단 메뉴 패딩 */
+.navbar-dark .navbar-nav .nav-linkj {
+	display: block;
+	padding: 0.5rem 0.5rem;
+	color: #000000;
+}
+
+/* 상단 메뉴바 색 */
+.bgj-dark {
+	background-color: #ffffff;
+}
+
+/* 부트스트랩 .col에 대한 수정 */
+.colj {
+	padding-top: 14px; 
+	padding-right : 0;
+	padding-left: 0;
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-width: 100%;
+	padding-right: 0;
+}
+
+/* 재식이형_메인화면 div 영역 설정 */
+.class_cont .main_cont {
+	cursor: pointer;
+	border: 1px solid #ccc;
+	padding: 20px;
+	height: 400px;
+	width: 48%;
+	box-sizing: border-box;
+	float: left;
+}
+
+.class_cont .sub_cont {
+	height: 400px;
+	width: 52%;
+	box-sizing: border-box;
+	float: left;
+}
+
+.class_cont .sub_cont .sub {
+	box-sizing: border-box;
+	font-weight: bold;
+	height: 133.33px;
+	cursor: pointer;
+	border-left: none;
+	padding: 15px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+/* 광고페이지 */
+.ad {
+	width: 1050px;
+	height: 105px;
+	/* background-image: url(/Content/Images/ad.png); */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: auto;
+	margin-top: 20px;
+}
+
+/* 원데이 페이지 */
+.oneday {
+	border: 1px solid !important;
+	margin-top: 25px;
+	height: 450px;
+}
+
+.oneday .onday_head {
+	height: 76px;
+}
+
+.oneday #onedayIndicators {
+	height: 450px;
+}
+
+.oneday #onedayIndicators .carousel-inner {
+	height: 450px;
+}
+
+.oneday #onedayIndicators .carousel-inner .carousel-item {
+	height: 450px;
+}
+
+.oneday #onedayIndicators .carousel-indicators li {
+	position: relative;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
+	width: 30px;
+	height: 3px;
+	margin-right: 3px;
+	margin-left: 3px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #493645;
+}
+
+.oneday #onedayIndicators .carousel-indicators .active {
+	background-color: #007bff;
+}
+
+.oneday #onedayIndicators .carousel-inner .carousel-item img {
+	height: 700px;
+	margin-top: -175px;
+}
+
+.oneday #onedayIndicators .carousel-inner .carousel-item .oneday_cont {
+	height: 355px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	width: 333px;
+	float: left;
+	cursor: pointer;
+	background-color: white;
+	margin-bottom: 30px;
+	margin-right: 25px;
+	/* margin-top: 10px; */
+}
+
+.oneday #onedayIndicators .carousel-inner .carousel-item .oneday_cont .image
+	{
+	border: 1px solid #ccc;
+	height: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-sizing: border-box;
+	padding-top: 10px;
+}
+
+
+/* 혜진 수정*/
+.flyout-search {
+	width: 300px;
+	height: 45px;
+	margin-top: auto;
+}
+
+/* 성환이 푸터 */
+.footer {
+	width: 100%;
+	border-top: 1px solid #e4e4e4;
+}
+
+.footer_cont {
+	width: 1050px;
+	margin: 0 auto;
+	padding: 35px 0 70px 0;
+}
+
+.footer .info_box {
+	overflow: hidden;
+	display: inline-block;
+}
+
+.footer .info {
+	overflow: hidden;
+	float: left;
+	margin-right: 80px
+}
+
+.footer .info b {
+	font-size: 16px;
+	color: #000;
+}
+
+.footer .info ul {
+	padding: 0;
+	margin: 0;
+	padding-top: 10px;
+}
+
+.footer .info ul li {
+	list-style: none;
+	font-size: 14px;
+	color: #909090;
+	line-height: 28px
+}
+
+.footer .info ul li a {
+	color: #909090;
+	text-decoration: none;
+}
+
+.footer .info_box2 {
+	float: right;
+}
+
+.footer .info_box2 .info {
+	margin: 0;
+}
+
+.footer .bt_info {
+	width: 650px;
+	font-size: 11px;
+	color: #909090;
+	line-height: 20px;
+	float: left;
+	letter-spacing: 0.5px;
+}
+
+.footer .logo_box {
+	float: right;
+	width: 300px;
+	text-align: right;
+	padding-right: 30px;
+}
+
+.footer .logo_box img {
+	margin-left: 20px;
+}

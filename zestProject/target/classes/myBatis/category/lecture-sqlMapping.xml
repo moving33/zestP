@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.lecture">
+ 
+ 	<!-- 카테고리(소분류) data를 가져오는 query문 -->
+ 	<select id="getLectureList" resultType="lectureVO">
+ 		SELECT * FROM LECTURE
+ 		<if test="{category_id != null}">
+ 		WHERE CATEGORY_ID = #{category_id} 		
+ 		</if> 		
+ 	</select> 
+ </mapper>

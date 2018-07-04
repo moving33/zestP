@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+	<!-- 클라이언트 -->
+	<context:component-scan
+		base-package="com.zest.web.client.aop" />
+	<context:component-scan
+		base-package="com.zest.web.client.dao" />
+	<context:component-scan
+		base-package="com.zest.web.client.service" />
+
+	<!-- 공지사항 -->
+	<context:component-scan
+		base-package="com.zest.web.notice.service" />
+	<context:component-scan
+		base-package="com.zest.web.notice.dao" />
+
+	<!-- 관리자 -->
+	<context:component-scan
+		base-package="com.zest.web.admin.service" />
+	<context:component-scan
+		base-package="com.zest.web.admin.dao" />
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!--해당 위치에서 properties 파일을 읽어와라 -->
+	<!-- <context:property-placeholder location="classpath:prop/db/*.properties" 
+		/> -->
+
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="dataSource">
+		<property name="driverClassName"
+			value="org.mariadb.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mariadb://zest.cmz2ikcdxqw8.ap-northeast-2.rds.amazonaws.com:3306/ZEST?allowMultiQueries=true" />
+		<property name="username" value="root" />
+		<property name="password" value="20180514" />
+	</bean>
+
+
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
+		id="sqlSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:myBatis/myBatis-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 실질적으로 사용하는 Template -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate"
+		id="sqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean" />
+	</bean>
+
+	<bean class="com.zest.web.util.Paging"></bean>
+	
+
+<!-- transaction 설정 -->
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut expression="execution( * com.zest.web.client.service..*.*(..)) || execution( * com.zest.web.admin.service..*.*(..))" 
+			id="txPointcut" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="txPointcut" />	
+	</aop:config>
+
+
+
+
+
+
+</beans>

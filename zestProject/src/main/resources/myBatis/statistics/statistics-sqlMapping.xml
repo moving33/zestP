@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.statistics">
+	
+	<!-- 통계 - 카테고리별 누적 인원 수 -->
+	<select id="getCount" resultType="int">
+		SELECT SUM(TALENT_ACC_CLIENT) FROM TALENT
+		WHERE TALENT_CATEGORY_ID = #{talent_category_id};
+	</select>
+	
+	<!-- 통계 - 카테고리별 활동 수 -->
+	<select id="getCateCount" resultType="int">
+		SELECT COUNT(TALENT_NO) FROM TALENT
+		WHERE TALENT_CATEGORY_ID = #{talent_category_id};
+	</select>
+	
+	<!-- 매출현황(카테고리별) -->
+	<select id="getSales" resultType="int">
+		SELECT SUM(TO_PRICE_TOTAL) 
+		FROM TALENT_ORDER JOIN TALENT USING(TALENT_NO) 
+		WHERE TALENT_CATEGORY_ID = #{talent_category_id};
+	</select>
+	
+	<!-- 메인페이지 월별 위부터 = 가입한 회원,결제갯수,튜터,수업 -->
+	<select id="getCLCounter" resultType="int">
+  		 SELECT count(CL_NO) from CLIENT a WHERE MONTH(a.CL_REG_DATE) = MONTH(now());   
+   </select>
+   
+   <select id="getTOCounter" resultType="int">
+   		SELECT count(TO_NO) from TALENT_ORDER a WHERE MONTH(a.TO_REG_DATE) = MONTH(now());
+   
+   </select>
+   
+    <select id="getTTCounter" resultType="int">
+    	SELECT count(a.TALENT_NO) from TALENT a WHERE MONTH(a.TALENT_REG_DATE) = MONTH(now());
+   
+   </select>
+   
+   <select id="getTLCounter" resultType="int">
+   	SELECT count(a.TS_NO) from TALENT_SUCCESS a WHERE MONTH(a.TI_DATE) = MONTH(now());
+   
+   </select>
+
+</mapper>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.mainPage">
+ 
+ 
+ 	<!-- 메인페이지 인기수업 카테고리 리스트를 가져오는 query문 -->
+ 	<select id="getHotCategory" resultType="CategoryPageVO"> 	
+	  <![CDATA[
+		SELECT * FROM (
+			SELECT @rownum := @rownum + 1 AS rownum,
+			TALENT_NO, 
+			TALENT_PRICE_HOUR,
+		    TALENT_ACC_CLIENT, 
+		    TC_SUBJECT, 
+		    TC_IMAGE_PATH, 
+		    ZONE_ID, 
+		    ZONE_NAME,
+		    TALENT_CATEGORY_ID
+						FROM (SELECT @rownum := 0)dummy,
+		  						 (SELECT 
+		  						 TALENT_NO, 
+								 TALENT_PRICE_HOUR,
+								 TALENT_ACC_CLIENT, 
+								 TC_SUBJECT, 
+								 TC_IMAGE_PATH, 
+								 GROUP_CONCAT(ZONE_ID) AS ZONE_ID, 
+								 GROUP_CONCAT(ZONE_NAME) AS ZONE_NAME,
+								 TALENT_CATEGORY_ID 
+								 FROM 
+		  						 	TALENT 
+		  						 		JOIN TALENT_CONTENT USING(TALENT_NO) 
+		  						 		JOIN TALENT_INFO USING(TALENT_NO) 
+		  						 		JOIN ZONE USING(ZONE_ID)
+		   							GROUP BY TALENT_NO
+       								ORDER BY TALENT.TALENT_ACC_CLIENT DESC limit 111111)rootMVC
+     			  	 			where (@rownum := 0) = 0)rnumMVC
+        		 where rownum >= 1 and rownum<= 4
+        	 ]]>
+        	 
+ 	</select>
+ 	
+ 	<!-- 메인페이지 인기원데이 리스트를 가져오는 query문 -->
+ 	<select id="getOneDayCategory" resultType="CategoryPageVO"> 	
+	  <![CDATA[
+		SELECT * FROM (
+			SELECT @rownum := @rownum + 1 AS rownum,
+			TALENT_NO, 
+			TALENT_PRICE_HOUR,
+		    TALENT_ACC_CLIENT, 
+		    TC_SUBJECT, 
+		    TC_IMAGE_PATH, 
+		    ZONE_ID, 
+		    ZONE_NAME,
+		    TALENT_CATEGORY_ID
+						FROM (SELECT @rownum := 0)dummy,
+		  						 (SELECT 
+		  						 TALENT_NO, 
+								 TALENT_PRICE_HOUR,
+								 TALENT_ACC_CLIENT, 
+								 TC_SUBJECT, 
+								 TC_IMAGE_PATH, 
+								 GROUP_CONCAT(ZONE_ID) AS ZONE_ID, 
+								 GROUP_CONCAT(ZONE_NAME) AS ZONE_NAME,
+								 TALENT_CATEGORY_ID 
+								 FROM 
+		  						 	TALENT 
+		  						 		JOIN TALENT_CONTENT USING(TALENT_NO) 
+		  						 		JOIN TALENT_INFO USING(TALENT_NO) 
+		  						 		JOIN ZONE USING(ZONE_ID)
+		  						 		WHERE TI_STATUS = 1
+		   							GROUP BY TALENT_NO
+       								ORDER BY TALENT.TALENT_ACC_CLIENT DESC limit 111111)rootMVC
+     			  	 			where (@rownum := 0) = 0)rnumMVC
+        		 where rownum >= 1 and rownum<= 9
+        	 ]]>
+        	 
+ 	</select>
+ 	
+ 	<!-- 메인페이지 리뷰 리스트 가져오는 query문 -->
+ 	<select id="getReviewCategory" resultType="CategoryPageVO"> 	
+	  <![CDATA[
+		SELECT * FROM (
+			SELECT @rownum := @rownum + 1 AS rownum,
+			TALENT_NO, 
+			TALENT_PRICE_HOUR,
+		    TALENT_ACC_CLIENT, 
+		    TC_SUBJECT, 
+		    TC_IMAGE_PATH, 
+		    ZONE_ID, 
+		    ZONE_NAME,
+		    TALENT_CATEGORY_ID,
+		   TR_CONTENT,
+		   TC_REG_DATE,
+		   TR_CLIENT_NO
+						FROM (SELECT @rownum := 0)dummy,
+		  						 (SELECT 
+		  						 TALENT_NO, 
+								 TALENT_PRICE_HOUR,
+								 TALENT_ACC_CLIENT, 
+								 TC_SUBJECT, 
+								 TC_IMAGE_PATH, 
+								 GROUP_CONCAT(ZONE_ID) AS ZONE_ID, 
+								 GROUP_CONCAT(ZONE_NAME) AS ZONE_NAME,
+								 TALENT_CATEGORY_ID,
+		   						 TR_CONTENT,
+		   						 TC_REG_DATE,
+		   						 TR_CLIENT_NO 
+								 FROM 
+		  						 	TALENT 
+		  						 		JOIN TALENT_CONTENT USING(TALENT_NO) 
+		  						 		JOIN TALENT_INFO USING(TALENT_NO) 
+		  						 		JOIN ZONE USING(ZONE_ID)
+		  						 		JOIN TALENT_REVIEW USING(TALENT_NO)
+		   							GROUP BY TALENT_NO
+       								ORDER BY TC_REG_DATE DESC limit 111111)rootMVC
+     			  	 			where (@rownum := 0) = 0)rnumMVC
+        		 where rownum >= 1 and rownum<= 9
+        	 ]]>
+        	 
+ 	</select>
+ 	
+ 	<!-- 메인페이지 리뷰 작성자 이름을 가져오는 query문 -->
+ 	<select id="getReviewClient" resultType="CategoryPageVO"> 	
+ 		SELECT CL_NAME
+  			from TALENT_REVIEW, CLIENT
+   			where TALENT_REVIEW.TR_CLIENT_NO = CLIENT.CL_NO and TALENT_REVIEW.TALENT_NO = #{talent_no}
+ 	</select>
+ 	
+ 	
+ </mapper>

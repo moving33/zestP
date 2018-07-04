@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talent_NotOneDay">
+	<!-- 강의 내용 등록 -->
+	<insert id="insertNotOneDayTime" parameterType="TT_notTimeVO">
+
+		INSERT INTO Talent_notOneDayTime(
+									TIME1,
+									TIME2,
+									TIME3)
+							VALUES (
+									#{time1, jdbcType=VARCHAR},
+									#{time2, jdbcType=VARCHAR},
+									#{time3, jdbcType=VARCHAR}
+									)
+		  <selectKey resultType="int" keyProperty="tt_nod_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+          </selectKey>
+	</insert>
+	
+	<!-- 원데이 아닌것 불러오기 -->
+	<select id="getnotOndayTime" parameterType="TT_notTimeVO" resultType="TT_notTimeVO">
+	SELECT * FROM Talent_notOneDayTime WHERE TT_NOD_NO = #{tt_nod_no}
+	
+	</select>
+</mapper>

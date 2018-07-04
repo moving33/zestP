@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talentOrder">
+	<!-- 수업 신청  -->
+	<insert id="insertTO" parameterType="TalentPropVO">
+
+		INSERT INTO TALENT_ORDER(
+								talent_no,
+								cl_no,
+								tt_no,
+								to_real_price,
+								to_use_point,
+								to_price_total,
+								to_meet_count,
+								to_type,
+								to_ip,
+								tp_status
+								)
+							VALUES (
+									#{talent_no},
+									#{cl_no},
+									#{tt_no},
+									#{to_real_price},
+									#{to_use_point},
+									#{to_price_total},
+									#{to_meet_count},
+									#{to_type},
+									#{to_ip},
+									#{tp_status}																																		
+									)
+		   <selectKey resultType="int" keyProperty="to_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+          </selectKey>
+	</insert>
+	
+	<!-- client가 수업 결제 완료된 내용 확인  -->
+	<select id="getOrderTalentForCL" resultType="CL_TT_Prop_ConfirmVO">
+	select a.TALENT_NO , b.TC_SUBJECT, c.TT_HP , a.TO_REG_DATE,a.TO_NO, c.TT_NO , a.TO_PRICE_TOTAL from
+            TALENT_ORDER as a
+            join TALENT_CONTENT as b on a.TALENT_NO=b.TALENT_NO
+            join TUTOR c on a.TT_NO=c.TT_NO
+            where a.CL_NO=#{cl_no} and a.TP_STATUS=1
+            GROUP BY a.TO_NO;	
+	</select>
+	
+	
+	
+	
+</mapper>

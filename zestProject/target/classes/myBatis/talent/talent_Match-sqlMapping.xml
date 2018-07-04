@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talentMatching">
+   <!-- 강의 매칭 등록 -->
+   <insert id="insertTS" parameterType="TS_VO">
+
+      INSERT INTO TALENT_SUCCESS(                        
+                        TO_NO,
+                        TT_NO,
+                        TS_CL_NO,
+                        TI_DATE,                        
+                        PS_MONEY
+                        )                        
+                     VALUES (
+                           #{to_no},
+                           #{tt_no},
+                           #{ts_cl_no},
+                           #{ti_date},
+                           #{ps_money}                                                                                                     
+                           )
+   </insert>
+   
+   <!-- 매칭 대기중인 강의를 얻어오는 쿼리문[수강생쪽] -->
+   <select id="getTSforStatus" parameterType="TS_VO" resultType="TS_VO">
+   	SELECT * FROM
+		  TALENT_SUCCESS
+		  WHERE
+    	  TO_NO = #{to_no} and TS_CL_NO = #{ts_cl_no} and TS_STATUS=0;   
+   </select>
+   
+   <!-- 매칭 대기중인 강의를 얻어오는 쿼리문[튜터쪽]  -->
+   <select id="getTSforTutor" parameterType="CL_TT_Prop_ConfirmVO" resultType="CL_TT_Prop_ConfirmVO">
+     
+		select a.TALENT_NO,e.TC_SUBJECT,c.CL_HP,c.CL_NAME,a.TO_PRICE_TOTAL,a.TO_REG_DATE,b.TP_CAREER_LEVEL,b.TP_CAREER_MONTH,b.TP_MESSAGE,d.TI_DATE,d.TS_NO,a.TO_NO,d.TS_STATUS
+         from
+         TALENT_ORDER a
+                           join  CLIENT c on a.CL_NO = c.CL_NO
+                           join  TALENT_SUCCESS d on a.TO_NO = d.TO_NO
+                           join  TALENT_PROP b on b.CL_NO=a.CL_NO
+                           join TALENT_CONTENT e on a.TALENT_NO=e.TALENT_NO
+          where a.TT_NO = ${tt_no} 
+          GROUP BY a.TO_NO;
+   </select> 
+   
+    <!-- 신청한 수업을 매칭 완료 업데이트  -->
+   <update id="updateTalentStatus" parameterType="TS_VO">
+   		update TALENT_SUCCESS 
+          SET TS_STATUS=1
+        	  WHERE 
+              TS_NO=#{to_no}           
+   </update>
+   
+   <!-- 넘버로 가져오기 -->
+   <select id="getTS" parameterType="TS_VO">
+   		SELECT * FROM TALENT_SUCCESS WHERE TS_NO=${ts_no}   
+   </select>
+   
+   <!-- 넘버로 TALENT_NO 가져오기 -->
+   <select id="getTalent_no" parameterType="TS_VO" resultType="int">
+   	SELECT T.TALENT_NO FROM TALENT_SUCCESS JOIN TALENT_ORDER ORDER2 on TALENT_SUCCESS.TO_NO = ORDER2.TO_NO
+                                       JOIN TALENT T on ORDER2.TALENT_NO = T.TALENT_NO
+                  WHERE TS_NO=${ts_no}   
+   </select>  
+   
+  
+   
+   
+   
+   
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.zest.account">
+ 
+ 	<!-- 잔고보기 -->
+ 	<select id="getAccountMoney" resultType="int">
+ 	SELECT ZEST_DEP FROM
+                      ZEST_ACCOUNT
+                ORDER BY
+                        DEP_REG_DATE DESC
+                LIMIT 1;
+ 	</select>
+ 	
+ 	<!-- 주문 결제시 입금 저장 -->
+ 	<insert id="insertZestAccount" parameterType="Zest_AccountVO">
+ 	 	INSERT INTO ZEST_ACCOUNT(
+ 	 					  	dep_type,
+							to_no,						
+							dep_money,
+							wit_money,
+							zest_dep,							
+							dep_talent_no,
+							dep_cl_no,
+							dep_tt_no) 
+ 	 					  				VALUES 
+ 	 					  		  			(
+ 	 					  		  			#{dep_type}, 
+ 	 					  					#{to_no},
+ 	 					  					#{dep_money}, 
+ 	 					  					#{wit_money},
+ 	 					  					#{zest_dep},
+ 	 					  					#{dep_talent_no},
+ 	 					  					#{dep_cl_no},
+ 	 					  					#{dep_tt_no}
+ 	 					  					)
+ 	</insert>
+ 	 
+ </mapper>

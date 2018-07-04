@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.admin">
+
+	<!-- Admin 등록 -->
+	<insert id="insertAdmin" parameterType="AdminVO">
+		INSERT INTO ADMIN(ID, PASS, NAME, TELL) VALUES (#{id}, #{pass},#{name},
+		#{tell});
+	</insert>
+
+	<select id="searchAdmin" resultType="AdminVO">
+		SELECT * FROM ADMIN WHERE ID = #{id};
+	</select>
+
+
+	<select id="submitTalent" parameterType="TalentSubmitVO" resultType="TalentSubmitVO">
+
+		SELECT 
+				a.TS_NO,
+				a.TO_NO,
+				a.TT_NO,
+				a.TS_CL_NO,
+				a.TI_DATE,
+				b.TO_REAL_PRICE,
+				a.TS_STATUS,
+				b.TO_PRICE_TOTAL,
+				b.TO_REG_DATE,
+				b.TO_REAL_PRICE-b.TO_PRICE_TOTAL as benefit
+		FROM
+		TALENT_SUCCESS a
+		join TALENT_ORDER b on a.TO_NO = b.TO_NO
+		WHERE TS_STATUS=1
+		order by b.TO_REG_DATE ASC;
+	</select>
+
+
+
+</mapper>

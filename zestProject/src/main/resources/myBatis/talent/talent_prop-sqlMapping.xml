@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talentProp">
+	<!-- 수업 신청  -->
+	<insert id="insertTP" parameterType="TalentPropVO">
+
+		INSERT INTO TALENT_PROP(
+								TALENT_NO,
+								CL_NO,
+								TT_NO,
+								TP_CAREER_LEVEL,
+								TP_CAREER_MONTH,
+								TP_MESSAGE,
+								TP_PRICE_TOTAL
+								)
+							VALUES (
+									#{talent_no},
+									#{cl_no},
+									#{tt_no},
+									#{tp_career_level},
+									#{tp_career_month},
+									#{tp_message},
+									#{tp_price_total}																																		
+									)
+	</insert>
+	
+	<!-- 결제완료시 수업신청테이블 업데이트 -->
+	<update id="completeProp" parameterType="TalentPropVO">	
+ 		UPDATE TALENT_PROP SET 
+ 						 TP_STATUS = 1  						 
+ 					  WHERE
+ 					  	 TALENT_NO = #{talent_no} and
+ 					  	 CL_NO = #{cl_no} and
+ 					  	 TP_STATUS = 0				  	 
+ 	</update> 	
+ 	<!-- 신청한 사람인지 확인하기 -->
+ 	<select id="getPropUser" parameterType="TalentPropVO" resultType="TalentPropVO">
+ 		select *  from 
+ 						TALENT_PROP 
+   				  WHERE
+		                  CL_NO=#{cl_no} and
+		                  TALENT_NO= #{talent_no} and
+		                  TP_STATUS=0;	
+ 	</select>
+	
+	
+</mapper>

@@ -1,0 +1,146 @@
+@charset "EUC-KR";
+.header {
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+}
+
+#container_apply {background:#e3e3e3; padding: 50px  0 50px 0;}
+#container_apply .apply_cont {width:1200px; margin:50px auto; background:#fff; overflow:hidden;}
+
+#container_apply .apply_cont .tutortxt{width:260px; padding:40px; float:left; border-right:1px solid #e4e4e4;}
+#container_apply .apply_cont .appcont{width:700px; padding:40px; margin-left:20px;float:left;}
+#container_apply .apply_cont .appcont2{width:700px; padding:60px 40px 0 40px; margin-left:20px;float:left;}
+#container_apply .apply_cont .appconttext{width:700px; padding:10px 40px 0 40px; margin-left:25px;float:left;text-align:center;}
+#container_apply .apply_cont .appconttext .textbox{width:140px; margin-left:40px;float:left;}
+#container_apply .apply_cont .appconttext .textbox2{width:140px; margin-left:105px;float:left;}
+#container_apply .apply_cont .tutortxt .tutor_img { 
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;}
+#container_apply .apply_cont .tutortxt .tutor_img img{width:100%;}
+#container_apply .apply_cont .tutortxt .name { width:100px; margin:0 auto; text-align:center; padding:10px 0;  font-size:18px; color:#333; }
+
+
+
+
+.stepwizard-step h1, .stepwizard-step2 h1 {margin-top: 10px; font-size:16px !important; color:#999}
+.stepwizard-row {display: table-row;}
+.stepwizard {width:1200px; margin:0 auto; position: relative;}
+.stepwizard-row:before { top: 14px; bottom: 0;position: absolute;content: " ";width: 100%;height: 1px; background-color: #ccc;z-order: 0;}
+.stepwizard-step {width:290px; display:inline-block; text-align: center; position: relative; }
+.stepwizard-step2 {width:580px; display:inline-block; text-align: center; position: relative; }
+.btn-circle { width: 30px;height: 30px; text-align: center;padding: 6px 0; font-size: 12px; border-radius: 15px; background-color: #fff; color:#999;  }
+.stepwizard .stepwizard-row .stepwizard-step.on h1, .stepwizard .stepwizard-row .stepwizard-step2.on h1 {font-size:24px !important; color:#333}
+.stepwizard .stepwizard-row .stepwizard-step.on .btn-circle, .stepwizard .stepwizard-row .stepwizard-step2.on .btn-circle  {color:#ff005a; font-weight:bold}
+
+#container_apply .apply_cont .appcont {
+    width: 700px;
+    padding: 40px;
+    margin-left: 20px;
+    float: left;
+}.appcont input {
+    width: 150px;
+    height: auto;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    font-size: 16px;
+    color: #333;
+}.appcont .top {
+    border-top: 1px solid #dadada;
+}.appcont .level {
+     height: 80px; 
+}
+.appcont .level .left {
+    float: left;
+    width: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+}.appcont .level .right {
+    float: left;
+    width: 500px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+}.appcont .level .on {
+    background: #ff005a;
+    border: 1px solid #ff005a;
+    color: #fff;
+}.appcont .level img {
+    width: 30px;
+    vertical-align: bottom;
+}.appcont .level .levelbox {
+    padding: 5px 0 5px 0;
+    float: left;
+    width: 31%;
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    margin-right: 5px;
+    background: #fff;
+    color: #999;
+    line-height: 25px;
+}.appcont .top {
+    border-top: 1px solid #dadada;
+}.appcont .level .left {
+    float: left;
+    width: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+}.appcont .level .right {
+    float: left;
+    width: 500px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+}.appcont .texta {
+    overflow: hidden;
+}.appcont .texta .left {
+    float: left;
+    width: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+}.appcont .texta .right {
+    float: left;
+    width: 500px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+}#container_apply .apply_button {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}#container_apply .apply_button .btn_red {
+    width: 200px;
+    display: inline-block;
+    margin-top: 0px;
+    background: #464646;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 0 20px 0;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border: 0px;
+}#container_apply .apply_button .btn_red:hover {
+    width: 200px;
+    background: #ff005a;
+    color: #fff;
+}

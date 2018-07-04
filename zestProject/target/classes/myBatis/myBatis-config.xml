@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<!-- 클라이언트 관련 VO -->
+			<typeAlias type="com.zest.web.client.model.client.ClientVO"
+				alias="ClientVO" />
+			<!-- 클라이언트 포인트 -->
+			<typeAlias alias="Client_pointVO"
+						type="com.zest.web.client.model.client.Client_pointVO" />
+				
+
+			
+				
+		<!-- 튜터 관련 VO -->			
+			<typeAlias type="com.zest.web.client.model.tutor.Tutor_PropVO"
+						alias="Tutor_PropVO" />						
+			<typeAlias type="com.zest.web.client.model.tutor.TuTorVO"
+						alias="TutorVO" />
+						
+				
+		<!-- 페이지 관련 VO -->
+			<typeAlias type="com.zest.web.client.model.page.CategoryPageVO"
+						alias="CategoryPageVO" />		
+			<!-- 클라이언트,튜터가 신청한 신청받은 수업 페이지 VO  -->			
+			<typeAlias type="com.zest.web.client.model.page.ClientAndTutorTalentPropPageVO"
+						alias="CL_TT_Prop_ConfirmVO" />						
+		
+		<!-- 수업 관련 VO -->
+			<typeAlias type="com.zest.web.client.model.talent.ClassDetailVO"
+						alias="DetailVO" />
+			<typeAlias type="com.zest.web.client.model.talent.ClassDetail_TutorVO"
+						alias="ClassDetail_TutorVO" />
+			<typeAlias type="com.zest.web.client.model.talent.Talent_contentVO"
+						alias="TC_VO" />			
+			<typeAlias type="com.zest.web.client.model.talent.TalentVO"
+						alias="TalentVO" />						
+			<typeAlias type="com.zest.web.client.model.talent.Talent_notOneDayTime"
+						alias="TT_notTimeVO" />
+			<typeAlias type="com.zest.web.client.model.talent.TalentOneDayTimeVO" 
+						alias="TT_TimeVO" />
+			<typeAlias type="com.zest.web.client.model.talent.Talent_info"
+						alias="TI_VO" />			
+			<typeAlias type="com.zest.web.client.model.talent.ReviewVO"
+						alias="ReviewVO" />
+			<typeAlias type="com.zest.web.client.model.talent.Talent_SuccessVO"
+						alias="TS_VO" />							
+						
+						
+		<!-- 결제 관련 VO -->
+			<!-- 주문신청 -->
+			<typeAlias alias="TalentPropVO"
+							type="com.zest.web.client.model.payment.TalentPropVO" />	
+			<!-- 결제 관련 -->
+			<typeAlias alias="Talent_OrderVO"
+							type="com.zest.web.client.model.payment.Talent_OrderVO" />
+			
+		<!-- 분류 관련 VO -->
+			<typeAlias type="com.zest.web.client.model.classification.LectureVO"
+						alias="lectureVO" />
+			<typeAlias type="com.zest.web.client.model.classification.CategoryVO"
+						alias="CategoryVO" />
+			<typeAlias type="com.zest.web.client.model.classification.ZoneVO"
+						alias="ZoneVO" />
+						
+		
+		<!-- 관리자 관련 VO -->			
+		
+			<typeAlias type="com.zest.web.admin.model.StatisticsVO"
+				alias="StatisticsVO" />
+			<typeAlias type="com.zest.web.notice.model.NoticeVO"
+				alias="NoticeVO" />		
+			<typeAlias type="com.zest.web.admin.model.AdminVO"
+				alias="AdminVO" />
+			<!-- zest 계좌 테이블 -->
+			<typeAlias alias="Zest_AccountVO"
+				type="com.zest.web.admin.model.Zest_AccountVO" />	
+			<typeAlias alias="TalentSubmitVO"
+				type="com.zest.web.admin.model.TalentSubmitVO" />	
+			
+			<!-- 관리자 게시판 -->
+			<typeAlias type="com.zest.web.admin.model.CommentVO"
+				alias="CommentVO" />
+			<typeAlias type="com.zest.web.admin.model.BoardVO"
+				alias="BoardVO" />
+
+
+		
+	<!-- 		
+		<typeAlias type="com.zest.web.client.model.TestA"
+			alias="testVO" />	 -->
+
+	</typeAliases>	
+
+		
+
+	<!-- <typeHandlers> java.sql.date 형식 반환 핸들러
+		<typeHandler javaType="java.util.Date"
+			handler="org.apache.ibatis.type.DateOnlyTypeHandler" />
+	</typeHandlers> -->
+
+
+
+	<!--Sql Mapper 설정 -->
+	<mappers>
+		<!--위치값을 줄때 루트 폴터는 resources 폴더이다. -->
+	<!-- 	<mapper resource="myBatis/test/test.xml"></mapper> -->
+		<mapper resource="myBatis/category/category-sqlMapping.xml" />
+		<mapper resource="myBatis/category/categoryPage-sqlMapping.xml" />
+		<mapper resource="myBatis/category/lecture-sqlMapping.xml" />
+		<!-- 클라이언트 -->
+		<mapper resource="myBatis/client/client-sqlMapping.xml" />
+
+		<!-- 튜터 신청 -->
+		<mapper resource="myBatis/tutor/tutor_prop-sqlMapping.xml" />
+		<!-- 튜터 -->
+		<mapper resource="myBatis/tutor/tutor-sqlMapping.xml" />
+		<!-- 관리자 -->
+		<mapper resource="myBatis/admin/admin-sqlMapping.xml" />
+		<!-- 메인페이지 -->
+		<mapper resource="myBatis/main/mainPage-sqlMapping.xml" />
+		<!-- 강의 -->
+		<mapper resource="myBatis/talent/talent-sqlMapping.xml" />
+		<!-- 강의 내용 -->
+		<mapper resource="myBatis/talent/talent_content-sqlMapping.xml" />
+		<!-- 강의 정보 -->
+		<mapper resource="myBatis/talent/talent_Info-sqlMapping.xml" />
+		<!-- 강의 notOneday 시간 -->
+		<mapper
+			resource="myBatis/talent/talent_notOnedayTime-sqlMapping.xml" />
+		<!-- 강의 Oneday 시간 -->
+		<mapper
+			resource="myBatis/talent/talent_OnedayTime-sqlMapping.xml" />
+		<!-- 지역 -->
+		<mapper resource="myBatis/zone/zone-sqlMapping.xml" />
+
+		<!-- 강의상세 -->
+		<mapper resource="myBatis/category/classDetail-sqlMapping.xml" />
+		<!-- 리뷰 -->
+		<mapper resource="myBatis/client/review-sqlMapping.xml" />
+		<!-- 공지사항 -->
+		<mapper resource="myBatis/notice/notice-sqlMapping.xml" />
+		<!-- 통계 -->
+		<mapper resource="myBatis/statistics/statistics-sqlMapping.xml" />
+		<!-- 주문처리 -->
+		<mapper resource="myBatis/talent/talent_prop-sqlMapping.xml"/>		
+		<!-- 결제 관련 -->				
+		<mapper resource="myBatis/talent/talent_order-sqlMapping.xml"/>
+		
+		<!-- 포인트 관련 -->		
+		<mapper resource="myBatis/client/client_point-sqlMapping.xml"/>
+		
+		<!-- zest 계좌 테이블 -->		
+		<mapper resource="myBatis/admin/zestAccount-sqlMapping.xml"/>
+		<!-- 수업 매칭 -->
+		<mapper resource="myBatis/talent/talent_Match-sqlMapping.xml"/>
+
+
+		<!-- 관리자페이지 게시판 -->
+		<mapper resource="myBatis/admin/board/adminBoard-sqlMapping.xml" />
+		<!-- 관리자 페이지 코멘트 -->
+		<mapper resource="myBatis/admin/board/adminComment-sqlMapper.xml" />
+
+	</mappers>
+
+
+</configuration>

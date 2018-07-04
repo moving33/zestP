@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.talent_OneDay">
+	<!-- 원데이 시간 등록 -->
+	<insert id="insertOneDayTime" parameterType="TT_TimeVO">
+
+		INSERT INTO Talent_OneDayTime(
+									day1,
+									day1Time,
+									day2,
+									day2Time,
+									day3,
+									day3Time)
+							VALUES (
+									#{day1, jdbcType=DATE},
+									#{day1Time, jdbcType=VARCHAR},
+									#{day2, jdbcType=DATE},									
+									#{day2Time, jdbcType=VARCHAR},
+									#{day3, jdbcType=DATE},
+									#{day3Time, jdbcType=VARCHAR}									
+									)
+		  <selectKey resultType="int" keyProperty="tt_od_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+          </selectKey>
+	</insert>
+	
+	<!-- 원데이 불러오기 -->
+	<select id="getOnedayTime" parameterType="TT_TimeVO" resultType="TT_TimeVO">
+	SELECT * FROM Talent_OneDayTime WHERE TT_OD_NO = #{tt_od_no}
+	</select>
+</mapper>

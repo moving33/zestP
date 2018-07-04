@@ -1,0 +1,257 @@
+/*
+전체 */
+body {
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+   /*오버 플로우 는 보이는 영역만 보여짐   overflow-x: hidden; */
+    color: #67757c;
+}
+
+.h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6.h1 {
+    color: #455a64;
+}
+
+.m-t-40{
+    /* margin-top: 40px!important; */
+}
+
+#main-wrapper {
+    width: 100%;
+}
+
+/*Header*/
+.header {
+    position: relative;
+    z-index: 50;
+    background: #fff;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .top-navbar {
+    min-height: 50px;
+    padding: 0 15px 0 0;
+}
+
+.navbar-header {
+    line-height: 45px;
+    text-align: center;
+    background: #fff;
+}
+
+.navbar-collapse ul li {
+    width: 300px;
+}
+
+#header .labelLogin {
+    width: 110px;
+    text-align: center;
+}
+
+/*사이드바*/
+.fix-sidebar .left-sidebar {
+    position: fixed; 
+}
+
+.left-sidebar {
+
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    z-index: 20;
+    padding-top: 60px;
+    background: #fff;
+    -webkit-box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-sidebar {
+    padding-bottom: 60px;
+}
+
+.sidebar-nav {
+    background: #fff;
+    padding: 0;
+}
+
+.sidebar-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav ul li.nav-devider {
+    height: 1px;
+    background: rgba(120, 130, 140, 0.13);
+    display: block;
+}
+
+.sidebar-nav ul li.nav-label {
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 14px 14px 14px 20px;
+    color: #607d8b;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sidebar-nav > ul > li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav .has-arrow {
+    position: relative;
+}
+
+.sidebar-nav > ul > li > a {
+    border-left: 3px solid transparent;
+  	color: black;
+}
+
+.sidebar-nav li > ul > li > a {
+    padding-left: 28px;
+    
+}
+
+/*content*/
+@media (min-width: 1024px) {
+    .page-wrapper {
+        margin-left: 248px;
+    }
+}
+.page-wrapper{
+    background: #fafafa;
+    padding-bottom: 60px;
+    position: absolute;
+    top: 77px;
+    width: 1300px;
+
+}
+
+.page-titles {
+    background: #ffffff;
+    margin: 0 0 30px;
+    padding: 15px 10px;
+    position: relative;
+    z-index: 10;
+    -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+.page-titles h3 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+/*content*/
+.container-fluid{
+    padding: 0 30px 25px;
+}
+.card-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.card .card-subtitle {
+    color: #99abb4;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.card-subtitle {
+    font-size: 12px;
+    margin: 10px 0;
+}
+/* 프로필사진 */
+
+.avatar > img{
+	max-width: 400px;	
+}
+
+.row > button{
+	margin : 0 auto;	
+}
+
+/* 프로필사진 버튼 */
+.button2 {
+	background-color: white;
+	color: black;
+	border: 2px solid #008CBA;
+}
+
+.button2:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.button3 {
+	background-color: white;
+	color: black;
+	border: 2px solid #ff005a;
+}
+
+.button3:hover {
+	background-color: #ff005a;
+	color: white;
+}
+/* 신분확인 관련 */
+.licenseconfirm{
+	margin: auto;
+}
+
+.licenseconfirm > ul > li {
+	list-style: none;
+}
+
+/* 승인버튼 */
+
+.allbutton {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 8px 22px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 250px;
+	border-radius: 12px;
+}
+.allbutton2 {
+	background-color: white;
+	color: black;
+	border: 2px solid #008CBA;
+}
+
+.allbutton2:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.allbutton3 {
+	background-color: white;
+	color: black;
+	border: 2px solid #ff005a;
+}
+
+.allbutton3:hover {
+	background-color: #ff005a;
+	color: white;
+}
+
+
+/* 카운터 */
+.counter {
+  display: table-cell;
+  margin:1.5%;
+  font-size:80px;
+  /* background-color: #FF6F6F; */
+  width:200px;
+  vertical-align: middle; 
+   padding-left: 41px;
+}
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zest.client">
+
+	<!-- client 조회 -->
+	<select id="getClient" parameterType="ClientVO"
+		resultType="ClientVO">
+		SELECT * FROM CLIENT WHERE CL_EMAIL = #{cl_email}
+	</select>
+
+	<!-- client 조회[NO key 값으로] -->
+	<select id="getClientForId" parameterType="ClientVO"
+		resultType="ClientVO">
+		SELECT * FROM CLIENT WHERE CL_NO = #{cl_no}
+	</select>
+
+	<!-- client 가입 -->
+	<insert id="insertClient" parameterType="ClientVO">
+		INSERT INTO CLIENT(CL_NAME, CL_EMAIL, CL_PASS) VALUES (#{cl_name}
+		,#{cl_email}, #{cl_pass});
+		<selectKey resultType="int" keyProperty="cl_no" order="AFTER">
+              SELECT LAST_INSERT_ID()
+         </selectKey>
+	</insert>
+
+	<update id="updateLastLogin" parameterType="ClientVO">
+		UPDATE CLIENT set CL_LL_DATE= now() where CL_EMAIL = #{cl_email}
+	</update>
+
+	<!-- 회원정보 수정 -->
+	<update id="modifyClient" parameterType="ClientVO">
+		UPDATE CLIENT set CL_IM_PATH = #{cl_im_path}, CL_NN = #{cl_nn}, CL_HP =
+		#{cl_hp} where CL_EMAIL = #{cl_email}
+	</update>
+
+	<!-- 포인트 업데이트 (적립) -->
+	<update id="inPoint"> 
+	UPDATE CLIENT SET CL_POINT = #{cl_point} WHERE CL_NO= #{cl_no} 
+	</update>
+
+	<!-- 누적사용금액 업데이트 -->
+	<update id="plusAccMoney"> 
+	UPDATE CLIENT SET CL_ACC_MONEY = #{cl_acc_money}
+		WHERE CL_NO = #{cl_no} </update>
+		
+	
+
+
+</mapper>
