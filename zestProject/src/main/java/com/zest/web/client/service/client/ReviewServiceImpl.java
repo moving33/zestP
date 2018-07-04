@@ -4,7 +4,7 @@ package com.zest.web.client.service.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.zest.web.client.dao.category.ClassDetailDAO;
+import com.zest.web.client.dao.cate.ClassDetailDAO;
 import com.zest.web.client.dao.client.ReviewDAO;
 import com.zest.web.client.model.talent.ReviewVO;
 import com.zest.web.client.model.talent.Talent_contentVO;

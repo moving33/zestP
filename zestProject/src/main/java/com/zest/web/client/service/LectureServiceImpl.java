@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zest.web.client.dao.category.LectureDAO;
+import com.zest.web.client.dao.cate.LectureDAO;
 import com.zest.web.client.model.classification.LectureVO;
 
 @Service

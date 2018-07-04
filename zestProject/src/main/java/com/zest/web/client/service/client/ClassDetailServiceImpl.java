@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zest.web.client.dao.category.ClassDetailDAO;
+import com.zest.web.client.dao.cate.ClassDetailDAO;
 import com.zest.web.client.model.talent.Talent_info;
 import com.zest.web.client.model.talent.ClassDetailVO;
 import com.zest.web.client.model.talent.ClassDetail_TutorVO;

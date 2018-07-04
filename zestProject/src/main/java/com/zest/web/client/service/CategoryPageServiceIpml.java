@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zest.web.client.dao.category.CategoryDAO;
+import com.zest.web.client.dao.cate.CategoryDAO;
 import com.zest.web.client.model.page.CategoryPageVO;
 
 @Service
