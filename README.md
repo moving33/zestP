@@ -1,5 +1,5 @@
 
-<h2>Client main 화면</h2>
+<h3>Client main 화면</h3>
   localhost:8080/zest/main
 
 <h2>관리자 main 화면</h2>
